@@ -120,7 +120,7 @@ img {
   height: 2px;
   border-radius: 10px;
   -webkit-transition: ease-in-out 1s;
-  transition: ease-in-out 1s;
+  transition: ease-in-out .3s;
 }
 
 .title {

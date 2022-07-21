@@ -6,22 +6,61 @@ const btnLeft = slider.querySelector('.btn__left');
 const btnRight = slider.querySelector('.btn__right');
 const progress = slider.querySelector('.slider__progress');
 const timer = 4; 
-let numberVisibleSlides = 4;
+let numberVisibleSlides;
+let numberLastVisibleSlide;
 let translationStartX = 0;
 let translationEndX = 0;
 let timerId;
 
 /**
+ * For defining number of visible slides
+ * @returns {number}
+ */
+function defineNumberVisibleSlides() {
+  const slideList = slider.querySelectorAll('.article');
+  let count = 0;
+
+  /**
+   * For checking visible el on the ClientRect
+   * @param {HTMLElement} el
+   * @returns {boolean}
+   */
+  const checkVisibleEL = (el) => {
+    const rect = el.getBoundingClientRect();
+
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+
+  for (let slide of slideList) {
+    if (checkVisibleEL(slide)) count ++;
+  }
+
+  return count;
+}
+
+/**
+ * For clearing progress
+ */
+function rollbackProgress() {
+  sliderInstance.style.transform = '';
+  progress.value = numberLastVisibleSlide = defineNumberVisibleSlides();
+}
+
+/**
  * For moving right via transform translateX
  */
 function moveRight() {
-  if (numberVisibleSlides < numberSlides) {
-    sliderInstance.style.transform = `translateX(${-1 * sliderWidth * (numberVisibleSlides++ - 3)}px)`;
+  if (numberLastVisibleSlide < numberSlides) {
+    sliderInstance.style.transform = `translateX(${-1 * sliderWidth * (numberLastVisibleSlide++ - (numberVisibleSlides - 1))}px)`;
     progress.value += 1;
   } else {
-    sliderInstance.style.transform = '';
-    progress.value = 4;
-    numberVisibleSlides = 4;
+    rollbackProgress();
   };
 }
 
@@ -29,18 +68,17 @@ function moveRight() {
  * For moving left via transform translateX
  */
 function moveLeft() {
-  if (numberVisibleSlides > 4) {
-    sliderInstance.style.transform = `translateX(${-1 * sliderWidth * (--numberVisibleSlides - 4)}px)`;
+  if (numberLastVisibleSlide > numberVisibleSlides) {
+    sliderInstance.style.transform = `translateX(${-1 * sliderWidth * (--numberLastVisibleSlide - numberVisibleSlides)}px)`;
     progress.value -= 1;
   } else {
-    sliderInstance.style.transform = '';
-    progress.value = 4;
-    numberVisibleSlides = 4;
+    rollbackProgress();
   };
 }
 
 /**
  * For calling moveRight every time s
+ * @returns {NodeJS.Timeout}
  */
 function autoPlay() {
   return setInterval(() => {
@@ -89,9 +127,10 @@ function reloadAutoPlay() {
 }
 
 function init () {
+  numberLastVisibleSlide = numberVisibleSlides = defineNumberVisibleSlides();
   progress.max = numberSlides;
   progress.value = numberVisibleSlides;
-  
+
   timerId = autoPlay();
 
   sliderInstance.addEventListener('mousedown', setStartCoordinats);
@@ -112,6 +151,7 @@ function init () {
     reloadAutoPlay();
     moveRight();
   });
+  window.addEventListener('resize', () => numberVisibleSlides = defineNumberVisibleSlides());
 }
 
 window.addEventListener('load', init);
