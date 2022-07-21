@@ -1,0 +1,130 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+  color: #527CCD;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  border-style: none;
+}
+
+.container {
+  max-width: 1400px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 260px;
+  border: 1px solid #CCDDFF;
+  padding: 20px;
+  margin-right: 40px;
+}
+.article__img {
+  display: block;
+  max-width: 220px;
+  max-height: 160px;
+  pointer-events: none;
+}
+.article__header {
+  margin-top: 10px;
+  margin-bottom: auto;
+}
+.article__title {
+  display: flex;
+  justify-content: space-between;
+}
+.article__link {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+}
+.article__time {
+  display: block;
+  margin-top: 10px;
+}
+.article__text {
+  margin-top: 10px;
+  height: 88px;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: ease-in-out 0.5s;
+}
+.slider__wrapper {
+  max-width: 1160px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.slider__item {
+  display: flex;
+}
+.slider__btn {
+  width: 60px;
+  height: 60px;
+  margin-left: 40px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+}
+.slider__btn:hover {
+  background-color: #C8D9FB;
+}
+.slider__progress {
+  height: 0;
+  width: 360px;
+  border: 0;
+}
+.slider__progress::-webkit-progress-bar {
+  background-color: #C8D9FB;
+  height: 1px;
+  border-radius: 10px;
+}
+.slider__progress::-webkit-progress-value {
+  background-color: #527CCD;
+  height: 2px;
+  border-radius: 10px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 60px;
+}
+
+.btn__left {
+  background-image: url("../assets/images/arrow-left.png");
+}
+.btn__right {
+  background-image: url("../assets/images/arrow-right.png");
+}
+
+.wrapper__controls {
+  display: flex;
+  align-items: center;
+}/*# sourceMappingURL=style.css.map */

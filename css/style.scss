@@ -1,0 +1,136 @@
+$colorPrimary: #527CCD;
+$fontBold: 700;
+$fontRegular: 400;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: $fontRegular;
+  font-size: 12px;
+  line-height: 22px;
+  color: $colorPrimary;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  border-style: none;
+}
+
+.container {
+  max-width: 1400px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 260px;
+  border: 1px solid #CCDDFF;
+  padding: 20px;
+  margin-right: 40px;
+  &__img {
+    display: block;
+    max-width: 220px;
+    max-height: 160px;
+    pointer-events: none
+  }
+  &__header {
+    margin-top: 10px;
+    margin-bottom: auto;
+  }
+  &__title {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__link {
+    text-decoration: none;
+    font-weight: $fontRegular;
+    font-size: 16px;
+    line-height: 26px;
+  }
+  &__time {
+    display: block;
+    margin-top: 10px;
+  }
+  &__text {
+    margin-top: 10px;
+    height: 88px;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.slider {
+  display: flex;
+  transition: ease-in-out 0.5s;
+  &__wrapper {
+    max-width: 1160px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  &__item {
+    display: flex;
+  }
+  &__btn {
+    width: 60px;
+    height: 60px;
+    margin-left: 40px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background-color: #C8D9FB;
+    }
+  }
+  &__progress {
+    height: 0;
+    width: 360px;
+    border: 0;
+  }
+  &__progress::-webkit-progress-bar {
+    background-color: #C8D9FB;
+    height: 1px;
+    border-radius: 10px;
+  }
+  &__progress::-webkit-progress-value {
+    background-color: $colorPrimary;
+    height: 2px;
+    border-radius: 10px;
+  }
+}
+
+.title {
+  font-weight: $fontBold;
+  font-size: 50px;
+  line-height: 60px;
+}
+
+.btn {
+  &__left {
+    background-image: url('../assets/images/arrow-left.png');
+  }
+  &__right {
+    background-image: url('../assets/images/arrow-right.png');
+  }
+}
+
+.wrapper__controls {
+  display: flex;
+  align-items: center;
+}
