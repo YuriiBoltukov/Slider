@@ -5,15 +5,16 @@ const numberSlides  = slider.querySelectorAll('.slider__item').length;
 const btnLeft = slider.querySelector('.btn__left');
 const btnRight = slider.querySelector('.btn__right');
 const progress = slider.querySelector('.slider__progress');
+const timer = 4; 
 let numberVisibleSlides = 4;
 let translationStartX = 0;
 let translationEndX = 0;
 let timerId;
 
-progress.max = numberSlides;
-progress.value = numberVisibleSlides;
-
-const moveRight = () => {
+/**
+ * For moving right via transform translateX
+ */
+function moveRight() {
   if (numberVisibleSlides < numberSlides) {
     sliderInstance.style.transform = `translateX(${-1 * sliderWidth * (numberVisibleSlides++ - 3)}px)`;
     progress.value += 1;
@@ -24,7 +25,10 @@ const moveRight = () => {
   };
 }
 
-const moveLeft = () => {
+/**
+ * For moving left via transform translateX
+ */
+function moveLeft() {
   if (numberVisibleSlides > 4) {
     sliderInstance.style.transform = `translateX(${-1 * sliderWidth * (--numberVisibleSlides - 4)}px)`;
     progress.value -= 1;
@@ -34,15 +38,21 @@ const moveLeft = () => {
     numberVisibleSlides = 4;
   };
 }
-     
+
+/**
+ * For calling moveRight every time s
+ */
 function autoPlay() {
   return setInterval(() => {
     moveRight();
-  }, 4000);
+  }, timer * 1000);
 }
 
+/**
+ * For moving right or left where touch events were done via transform translateX
+ */
 function pull() {
-  clearInterval(timerId);
+  reloadAutoPlay();
 
   if ((translationStartX - translationEndX) > 0) {
     moveRight();
@@ -52,39 +62,56 @@ function pull() {
 
   translationStartX = 0;
   translationEndX = 0;
-
-  timerId = autoPlay();
 }
 
-function getStartCoordinats(event) {
+/**
+ * For setting initial mouse move coordinats
+ */
+function setStartCoordinats(event) {
   event = event || window.event;
   translationStartX = event.clientX;
-  return translationStartX;
 }
 
-function getEndCoordinats(event) {
+/**
+ * For setting end mouse move coordinats
+ */
+function setEndCoordinats(event) {
   event = event || window.event;
   translationEndX = event.clientX;
-  return pull();
+}
+
+/**
+ * For reloading autoplay
+ */
+function reloadAutoPlay() {
+  clearInterval(timerId);
+  timerId = autoPlay();
 }
 
 function init () {
-  sliderInstance.addEventListener('mousedown', getStartCoordinats);
-  sliderInstance.addEventListener('mouseup', getEndCoordinats);
-
-  btnLeft.addEventListener('click', ()=>{
-    clearInterval(timerId);
-    moveLeft();
-    timerId = autoPlay();
-  });
-
-  btnRight.addEventListener('click', ()=>{
-    clearInterval(timerId);
-    moveRight();
-    timerId = autoPlay();
-  });
+  progress.max = numberSlides;
+  progress.value = numberVisibleSlides;
   
   timerId = autoPlay();
+
+  sliderInstance.addEventListener('mousedown', setStartCoordinats);
+  sliderInstance.addEventListener('mouseup', (event) => {
+    setEndCoordinats(event);
+    pull();
+  });
+  sliderInstance.addEventListener('touchstart', (event) => setStartCoordinats(event.changedTouches[0]));
+  sliderInstance.addEventListener('touchend', (event) => {
+    setEndCoordinats(event.changedTouches[0]);
+    pull();
+  });
+  btnLeft.addEventListener('click', ()=>{
+    reloadAutoPlay();
+    moveLeft();
+  });
+  btnRight.addEventListener('click', ()=>{
+    reloadAutoPlay();
+    moveRight();
+  });
 }
 
 window.addEventListener('load', init);
