@@ -1,366 +1,373 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider</title>
-    <meta name="description" content="NATS test assignment" />
-    <link rel="stylesheet" href="style.css" />
+    <meta name="description" content="NATS test assignment">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
     <main>
       <div class="container">
-        <h1>Актуальное</h1>
-
-        <div class="wrapper__btn">
-          <button class="slider__btn">
-            <img src="assets/images/arrow-left.png" alt="" />
-          </button>
-          <button class="slider__btn">
-            <img src="assets/images/arrow-right.png" alt="" />
-          </button>
-        </div>
         <div class="articles__list">
+          
           <div class="slider__wrapper">
-            <div class="articles__item">
-              <div class="article">
-                <img
-                  src="assets/images/slide.jpg"
-                  alt=""
-                  class="article__img"
-                />
-
-                <div class="article__header">
-                  <time class="article__time"> 20.07.2022 </time>
-                  <h5>
-                    <a href="#">
-                      Ким и Валерия Брейтбурги написали книгу про искусство
-                    </a>
-                  </h5>
-                </div>
-
-                <div class="article__text">
-                  Работа над книгой велась более пяти лет, и действенные
-                  методики, описанные в ней, созданные в результате анализа
-                  и синтеза идей…
-                </div>
+            <div class="article__title">
+              <h1 class="title">Актуальное</h1>
+              <div class="wrapper__btn">
+                <progress class="article__progress" value="10" max="100"></progress>
+                <button class="slider__btn btn__left"></button>
+                <button class="slider__btn btn__right"></button>
               </div>
             </div>
-
-            <div class="articles__item">
-              <div class="article">
-                <img
-                  src="assets/images/slide.jpg"
-                  alt=""
-                  class="article__img"
-                />
-
-                <div class="article__header">
-                  <h5>
-                    <a href="#">
-                      Юрий Колокольников пытается спасти Землю в клипе
-                      «Космические силы»
-                    </a>
-                  </h5>
+            <div class="slider">
+              <div class="articles__item">
+                <div class="article">
+                  <img
+                    src="assets/images/slide.jpg"
+                    alt=""
+                    class="article__img"
+                  />
                   <time class="article__time"> 20.07.2022 </time>
-                </div>
+                  <div class="article__header">
+                    
+                    <h5>
+                      <a class="article__link" href="#">
+                        Ким и Валерия Брейтбурги написали книгу про искусство
+                      </a>
+                    </h5>
+                  </div>
 
-                <div class="article__text">
-                  Премьера клипа «Космические силы» группы «Мумий Тролль»
-                  состоялась 6 ноября 2020 года.
+                  <div class="article__text">
+                    Работа над книгой велась более пяти лет, и действенные
+                    методики, описанные в ней, созданные в результате анализа
+                    и синтеза идей…
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="articles__item">
-              <div class="article">
-                <img
-                  src="assets/images/slide.jpg"
-                  alt=""
-                  class="article__img"
-                />
-
-                <div class="article__header">
+              <div class="articles__item">
+                <div class="article">
+                  <img
+                    src="assets/images/slide.jpg"
+                    alt=""
+                    class="article__img"
+                  />
                   <time class="article__time"> 20.07.2022 </time>
-                  <h5>
-                    <a href="#"> BTS получили четыре награды MTV EMA </a>
-                  </h5>
+                  <div class="article__header">
+                    
+                    <h5>
+                      <a class="article__link" href="#">
+                        Юрий Колокольников пытается спасти Землю в клипе
+                        «Космические силы»
+                      </a>
+                    </h5>
+                    
+                  </div>
+
+                  <div class="article__text">
+                    Премьера клипа «Космические силы» группы «Мумий Тролль»
+                    состоялась 6 ноября 2020 года.
+                  </div>
+                </div>
+              </div>
+
+              <div class="articles__item">
+                <div class="article">
+                  <img
+                    src="assets/images/slide.jpg"
+                    alt=""
+                    class="article__img"
+                  />
+                  <time class="article__time"> 20.07.2022 </time>
+                  <div class="article__header">
+                    
+                    <h5>
+                      <a class="article__link" href="#"> BTS получили четыре награды MTV EMA </a>
+                    </h5>
+                    
+                  </div>
+
+                  <div class="article__text">
+                    BTS получили четыре награды MTV EMA 27-я ежегодная церемония
+                    награждения MTV Europe Music Awards состоялась 8 ноября 2020
+                    г.
+                  </div>
+                </div>
+              </div>
+
+              <div class="articles__item">
+                <div class="article">
+                  <img
+                    src="assets/images/slide.jpg"
+                    alt=""
+                    class="article__img"
+                  />
+                  <time class="article__time"> 20.07.2022 </time>
+                  <div class="article__header">
+                    
+                    <h5>
+                      <a class="article__link" href="#"> Открытие сезона «Ла Скала» отменено </a>
+                    </h5>
+                    
+                  </div>
+
+                  <div class="article__text">
+                    Миланский театр La Scala отменил открытие сезона. Первый
+                    спектакль был назначен на 7 декабря — «Лючия ди Ламмермур».
+                  </div>
+                </div>
+              </div>
+
+              <div class="articles__item">
+                <div class="article">
+                  <img
+                    src="assets/images/slide.jpg"
+                    alt=""
+                    class="article__img"
+                  />
+                  <time class="article__time"> 20.07.2022 </time>
+                  <div class="article__header">
+                    
+                    <h5>
+                      <a class="article__link" href="#">
+                        Ким и Валерия Брейтбурги написали книгу про искусство
+                      </a>
+                    </h5>
+                    
+                  </div>
+
+                  <div class="article__text">
+                    Работа над книгой велась более пяти лет, и действенные
+                    методики, описанные в ней, созданные в результате анализа
+                    и синтеза идей…
+                  </div>
+                </div>
+              </div>
+
+              <div class="articles__item">
+                <div class="article">
+                  <img
+                    src="assets/images/slide.jpg"
+                    alt=""
+                    class="article__img"
+                  />
+                  <time class="article__time"> 20.07.2022 </time>
+                  <div class="article__header">
+                    
+                    <h5>
+                      <a class="article__link" href="#">
+                        Юрий Колокольников пытается спасти Землю в клипе
+                        «Космические силы»
+                      </a>
+                    </h5>
+                    
+                  </div>
+
+                  <div class="article__text">
+                    Премьера клипа «Космические силы» группы «Мумий Тролль»
+                    состоялась 6 ноября 2020 года.
+                  </div>
+                </div>
+              </div>
+
+              <div class="articles__item">
+                <div class="article">
+                  <img
+                    src="assets/images/slide.jpg"
+                    alt=""
+                    class="article__img"
+                  />
+                  <time class="article__time"> 20.07.2022 </time>
+                  <div class="article__header">
+                    
+                    <h5>
+                      <a class="article__link" href="#"> BTS получили четыре награды MTV EMA </a>
+                    </h5>
+                    
+                  </div>
+
+                  <div class="article__text">
+                    BTS получили четыре награды MTV EMA 27-я ежегодная церемония
+                    награждения MTV Europe Music Awards состоялась 8 ноября 2020
+                    г.
+                  </div>
+                </div>
+              </div>
+
+              <div class="articles__item">
+                <div class="article">
+                  <img
+                    src="assets/images/slide.jpg"
+                    alt=""
+                    class="article__img"
+                  />
+                  <time class="article__time"> 20.07.2022 </time>
+                  <div class="article__header">
+                    
+                    <h5>
+                      <a class="article__link" href="#"> Открытие сезона «Ла Скала» отменено </a>
+                    </h5>
+                    
+                  </div>
+
+                  <div class="article__text">
+                    Миланский театр La Scala отменил открытие сезона. Первый
+                    спектакль был назначен на 7 декабря — «Лючия ди Ламмермур».
+                  </div>
+                </div>
+              </div>
+
+              <div class="articles__item">
+                <div class="article">
+                  <img
+                    src="assets/images/slide.jpg"
+                    alt=""
+                    class="article__img"
+                  />
+                  <time class="article__time"> 20.07.2022 </time>
+                  <div class="article__header">
+                    
+                    <h5>
+                      <a class="article__link" href="#">
+                        Ким и Валерия Брейтбурги написали книгу про искусство
+                      </a>
+                    </h5>
+                    
+                  </div>
+
+                  <div class="article__text">
+                    Работа над книгой велась более пяти лет, и действенные
+                    методики, описанные в ней, созданные в результате анализа
+                    и синтеза идей…
+                  </div>
+                </div>
+              </div>
+
+              <div class="articles__item">
+                <div class="article">
+                  <img
+                    src="assets/images/slide.jpg"
+                    alt=""
+                    class="article__img"
+                  />
+                  <time class="article__time"> 20.07.2022 </time>
+                  <div class="article__header">
+                    
+                    <h5>
+                      
+                      <a class="article__link" href="#">
+                        Юрий Колокольников пытается спасти Землю в клипе
+                        «Космические силы»
+                      </a>
+                    </h5>
                   
-                </div>
+                  </div>
 
-                <div class="article__text">
-                  BTS получили четыре награды MTV EMA 27-я ежегодная церемония
-                  награждения MTV Europe Music Awards состоялась 8 ноября 2020
-                  г.
+                  <div class="article__text">
+                    Премьера клипа «Космические силы» группы «Мумий Тролль»
+                    состоялась 6 ноября 2020 года.
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="articles__item">
-              <div class="article">
-                <img
-                  src="assets/images/slide.jpg"
-                  alt=""
-                  class="article__img"
-                />
-
-                <div class="article__header">
+              <div class="articles__item">
+                <div class="article">
+                  <img
+                    src="assets/images/slide.jpg"
+                    alt=""
+                    class="article__img"
+                  />
                   <time class="article__time"> 20.07.2022 </time>
-                  <h5>
-                    <a href="#"> Открытие сезона «Ла Скала» отменено </a>
-                  </h5>
-                  
-                </div>
+                  <div class="article__header">
+                    
+                    <h5>
+                      <a class="article__link" href="#"> BTS получили четыре награды MTV EMA </a>
+                    </h5>
+                    
+                  </div>
 
-                <div class="article__text">
-                  Миланский театр La Scala отменил открытие сезона. Первый
-                  спектакль был назначен на 7 декабря — «Лючия ди Ламмермур».
+                  <div class="article__text">
+                    BTS получили четыре награды MTV EMA 27-я ежегодная церемония
+                    награждения MTV Europe Music Awards состоялась 8 ноября 2020
+                    г.
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="articles__item">
-              <div class="article">
-                <img
-                  src="assets/images/slide.jpg"
-                  alt=""
-                  class="article__img"
-                />
-
-                <div class="article__header">
-                  <h5>
-                    <a href="#">
-                      Ким и Валерия Брейтбурги написали книгу про искусство
-                    </a>
-                  </h5>
+              <div class="articles__item">
+                <div class="article">
+                  <img
+                    src="assets/images/slide.jpg"
+                    alt=""
+                    class="article__img"
+                  />
                   <time class="article__time"> 20.07.2022 </time>
-                </div>
+                  <div class="article__header">
+                    
+                    <h5>
+                      <a class="article__link" href="#"> Открытие сезона «Ла Скала» отменено </a>
+                    </h5>
+                    
+                  </div>
 
-                <div class="article__text">
-                  Работа над книгой велась более пяти лет, и действенные
-                  методики, описанные в ней, созданные в результате анализа
-                  и синтеза идей…
+                  <div class="article__text">
+                    Миланский театр La Scala отменил открытие сезона. Первый
+                    спектакль был назначен на 7 декабря — «Лючия ди Ламмермур».
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="articles__item">
-              <div class="article">
-                <img
-                  src="assets/images/slide.jpg"
-                  alt=""
-                  class="article__img"
-                />
-
-                <div class="article__header">
+              <div class="articles__item">
+                <div class="article">
+                  <img
+                    src="assets/images/slide.jpg"
+                    alt=""
+                    class="article__img"
+                  />
                   <time class="article__time"> 20.07.2022 </time>
-                  <h5>
-                    <a href="#">
-                      Юрий Колокольников пытается спасти Землю в клипе
-                      «Космические силы»
-                    </a>
-                  </h5>
-                  
-                </div>
+                  <div class="article__header">
+                    
+                    <h5>
+                      <a class="article__link" href="#"> BTS получили четыре награды MTV EMA </a>
+                    </h5>
+                    
+                  </div>
 
-                <div class="article__text">
-                  Премьера клипа «Космические силы» группы «Мумий Тролль»
-                  состоялась 6 ноября 2020 года.
+                  <div class="article__text">
+                    BTS получили четыре награды MTV EMA 27-я ежегодная церемония
+                    награждения MTV Europe Music Awards состоялась 8 ноября 2020
+                    г.
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="articles__item">
-              <div class="article">
-                <img
-                  src="assets/images/slide.jpg"
-                  alt=""
-                  class="article__img"
-                />
-
-                <div class="article__header">
+              <div class="articles__item">
+                <div class="article">
+                  <img
+                    src="assets/images/slide.jpg"
+                    alt=""
+                    class="article__img"
+                  />
                   <time class="article__time"> 20.07.2022 </time>
-                  <h5>
-                    <a href="#"> BTS получили четыре награды MTV EMA </a>
-                  </h5>
-                  
-                </div>
+                  <div class="article__header">
+                    
+                    <h5>
+                      <a class="article__link" href="#"> Открытие сезона «Ла Скала» отменено </a>
+                    </h5>
+                    
+                  </div>
 
-                <div class="article__text">
-                  BTS получили четыре награды MTV EMA 27-я ежегодная церемония
-                  награждения MTV Europe Music Awards состоялась 8 ноября 2020
-                  г.
-                </div>
-              </div>
-            </div>
-
-            <div class="articles__item">
-              <div class="article">
-                <img
-                  src="assets/images/slide.jpg"
-                  alt=""
-                  class="article__img"
-                />
-
-                <div class="article__header">
-                  <time class="article__time"> 20.07.2022 </time>
-                  <h5>
-                    <a href="#"> Открытие сезона «Ла Скала» отменено </a>
-                  </h5>
-                  
-                </div>
-
-                <div class="article__text">
-                  Миланский театр La Scala отменил открытие сезона. Первый
-                  спектакль был назначен на 7 декабря — «Лючия ди Ламмермур».
-                </div>
-              </div>
-            </div>
-
-            <div class="articles__item">
-              <div class="article">
-                <img
-                  src="assets/images/slide.jpg"
-                  alt=""
-                  class="article__img"
-                />
-
-                <div class="article__header">
-                  <time class="article__time"> 20.07.2022 </time>
-                  <h5>
-                    <a href="#">
-                      Ким и Валерия Брейтбурги написали книгу про искусство
-                    </a>
-                  </h5>
-                  
-                </div>
-
-                <div class="article__text">
-                  Работа над книгой велась более пяти лет, и действенные
-                  методики, описанные в ней, созданные в результате анализа
-                  и синтеза идей…
-                </div>
-              </div>
-            </div>
-
-            <div class="articles__item">
-              <div class="article">
-                <img
-                  src="assets/images/slide.jpg"
-                  alt=""
-                  class="article__img"
-                />
-
-                <div class="article__header">
-                  <h5>
-                    <time class="article__time"> 20.07.2022 </time>
-                    <a href="#">
-                      Юрий Колокольников пытается спасти Землю в клипе
-                      «Космические силы»
-                    </a>
-                  </h5>
-                 
-                </div>
-
-                <div class="article__text">
-                  Премьера клипа «Космические силы» группы «Мумий Тролль»
-                  состоялась 6 ноября 2020 года.
-                </div>
-              </div>
-            </div>
-
-            <div class="articles__item">
-              <div class="article">
-                <img
-                  src="assets/images/slide.jpg"
-                  alt=""
-                  class="article__img"
-                />
-
-                <div class="article__header">
-                  <time class="article__time"> 20.07.2022 </time>
-                  <h5>
-                    <a href="#"> BTS получили четыре награды MTV EMA </a>
-                  </h5>
-                  
-                </div>
-
-                <div class="article__text">
-                  BTS получили четыре награды MTV EMA 27-я ежегодная церемония
-                  награждения MTV Europe Music Awards состоялась 8 ноября 2020
-                  г.
-                </div>
-              </div>
-            </div>
-
-            <div class="articles__item">
-              <div class="article">
-                <img
-                  src="assets/images/slide.jpg"
-                  alt=""
-                  class="article__img"
-                />
-
-                <div class="article__header">
-                  <time class="article__time"> 20.07.2022 </time>
-                  <h5>
-                    <a href="#"> Открытие сезона «Ла Скала» отменено </a>
-                  </h5>
-                  
-                </div>
-
-                <div class="article__text">
-                  Миланский театр La Scala отменил открытие сезона. Первый
-                  спектакль был назначен на 7 декабря — «Лючия ди Ламмермур».
-                </div>
-              </div>
-            </div>
-
-            <div class="articles__item">
-              <div class="article">
-                <img
-                  src="assets/images/slide.jpg"
-                  alt=""
-                  class="article__img"
-                />
-
-                <div class="article__header">
-                  <time class="article__time"> 20.07.2022 </time>
-                  <h5>
-                    <a href="#"> BTS получили четыре награды MTV EMA </a>
-                  </h5>
-                  
-                </div>
-
-                <div class="article__text">
-                  BTS получили четыре награды MTV EMA 27-я ежегодная церемония
-                  награждения MTV Europe Music Awards состоялась 8 ноября 2020
-                  г.
-                </div>
-              </div>
-            </div>
-
-            <div class="articles__item">
-              <div class="article">
-                <img
-                  src="assets/images/slide.jpg"
-                  alt=""
-                  class="article__img"
-                />
-
-                <div class="article__header">
-                  <time class="article__time"> 20.07.2022 </time>
-                  <h5>
-                    <a href="#"> Открытие сезона «Ла Скала» отменено </a>
-                  </h5>
-                  
-                </div>
-
-                <div class="article__text">
-                  Миланский театр La Scala отменил открытие сезона. Первый
-                  спектакль был назначен на 7 декабря — «Лючия ди Ламмермур».
+                  <div class="article__text">
+                    Миланский театр La Scala отменил открытие сезона. Первый
+                    спектакль был назначен на 7 декабря — «Лючия ди Ламмермур».
+                  </div>
                 </div>
               </div>
             </div>

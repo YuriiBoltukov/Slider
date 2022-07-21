@@ -1,5 +1,5 @@
-
-body {
+body,
+h5 {
   margin: 0;
 }
 
@@ -15,26 +15,28 @@ img {
   border-style: none;
 }
 
-
-
-
 .container {
   max-width: 1400px;
   padding: 10px;
+  margin: 0 auto;
 }
 
 .article {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: 20px;
+  display: block;
   border: 1px solid #CCDDFF;
   padding: 20px;
-  width: 260px;
-  height: 420px;
+  width: 218px;
+  height: 378px;
+  margin-right: 40px;
 }
 
 .slider__wrapper {
+  overflow: hidden;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.slider {
   display: flex;
 }
 
@@ -42,11 +44,131 @@ img {
   display: block;
   max-width: 220px;
   max-height: 160px;
-  margin-bottom: 10px;
 }
 
 .article__header,
 .article__text {
   width: 220px;
-  margin-bottom: 10px;
+  display: block;
+}
+
+.article__header {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 10px;
+  display: block;
+  height: 78px;
+}
+
+.article__text {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+  color: #527CCD;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 60px;
+  color: #527CCD;
+}
+
+.article__title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider__btn {
+  width: 60px;
+  height: 60px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 40px;
+}
+
+.slider__btn:hover {
+  background-color: #C8D9FB;
+}
+
+.btn__left {
+  background-image: url(assets/images/arrow-left.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.btn__right {
+  background-image: url(assets/images/arrow-right.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.article__time {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+  color: #527CCD;
+  margin-top: 10px;
+  display: block;
+}
+
+.article__link {
+  text-decoration: none;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #527CCD;
+  width: 220px;
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.article__progress {
+  height: 0;
+  border: 0;
+  width: 360px;
+}
+
+.article__progress::-webkit-progress-bar {
+  background-color: #C8D9FB;
+  height: 1px;
+  border-radius: 10px;
+}
+
+.article__progress::-webkit-progress-value {
+  background-color: #527CCD;
+  height: 2px;
+  border-radius: 10px;
+}
+
+.wrapper__btn {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
