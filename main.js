@@ -17,7 +17,7 @@ let timerId;
  * @returns {number}
  */
 function defineNumberVisibleSlides() {
-  const slideList = slider.querySelectorAll('.article');
+  const slideList = slider.querySelectorAll('.slider__content');
   let count = 0;
 
   /**
