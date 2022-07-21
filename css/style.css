@@ -36,6 +36,11 @@ img {
   border: 1px solid #CCDDFF;
   padding: 20px;
   margin-right: 40px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
 }
 .article__img {
   display: block;

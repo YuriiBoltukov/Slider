@@ -40,11 +40,13 @@ img {
   border: 1px solid #CCDDFF;
   padding: 20px;
   margin-right: 40px;
+  user-select: none;
+  cursor: pointer;
   &__img {
     display: block;
     max-width: 220px;
     max-height: 160px;
-    pointer-events: none
+    pointer-events: none;
   }
   &__header {
     margin-top: 10px;

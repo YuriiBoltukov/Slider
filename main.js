@@ -1,40 +1,37 @@
-const slider = document.querySelector('.slider');
-const sliderItem = document.querySelector('.slider__item');
-const lengthListSlides  = document.querySelectorAll('.slider__item').length;
-const slidesWidth = sliderItem.offsetWidth;
-const left = document.querySelector('.btn__left');
-const right = document.querySelector('.btn__right');
-const progress = document.querySelector('.slider__progress');
+const slider = document.querySelector('.slider__wrapper');
+const sliderInstance = slider.querySelector('.slider');
+const sliderWidth = slider.querySelector('.slider__item').offsetWidth;
+const numberSlides  = slider.querySelectorAll('.slider__item').length;
+const btnLeft = slider.querySelector('.btn__left');
+const btnRight = slider.querySelector('.btn__right');
+const progress = slider.querySelector('.slider__progress');
 let numberVisibleSlides = 4;
-let startX = 0;
-let endX = 0;
-let restSlides = lengthListSlides;
+let translationStartX = 0;
+let translationEndX = 0;
 let timerId;
 
-progress.max = lengthListSlides;
+progress.max = numberSlides;
 progress.value = numberVisibleSlides;
 
 const moveRight = () => {
-  if (numberVisibleSlides < lengthListSlides) {
-    slider.style.transform = `translateX(${-1 * slidesWidth * (numberVisibleSlides++ - 3)}px)`;
+  if (numberVisibleSlides < numberSlides) {
+    sliderInstance.style.transform = `translateX(${-1 * sliderWidth * (numberVisibleSlides++ - 3)}px)`;
     progress.value += 1;
-    restSlides--;
   } else {
-    slider.style.transform = '';
+    sliderInstance.style.transform = '';
     progress.value = 4;
-    restSlides = numberVisibleSlides = 4;
+    numberVisibleSlides = 4;
   };
 }
 
 const moveLeft = () => {
   if (numberVisibleSlides > 4) {
-    slider.style.transform = `translateX(${-1 * slidesWidth * (--numberVisibleSlides - 4)}px)`;
+    sliderInstance.style.transform = `translateX(${-1 * sliderWidth * (--numberVisibleSlides - 4)}px)`;
     progress.value -= 1;
-    restSlides++;
   } else {
-    slider.style.transform = '';
+    sliderInstance.style.transform = '';
     progress.value = 4;
-    restSlides = numberVisibleSlides = 4;
+    numberVisibleSlides = 4;
   };
 }
      
@@ -44,53 +41,50 @@ function autoPlay() {
   }, 4000);
 }
 
-const pull = () => {
-  if ((startX - endX) > 0) {
-    numberVisibleSlides++;
-    restSlides--;
+function pull() {
+  clearInterval(timerId);
+
+  if ((translationStartX - translationEndX) > 0) {
     moveRight();
   } else {
-    numberVisibleSlides--;
-    restSlides++;
     moveLeft();
   }
-  startX = 0;
-  endX = 0;
+
+  translationStartX = 0;
+  translationEndX = 0;
+
   timerId = autoPlay();
 }
 
-const getStartCoordinats = () => {
-  slider.onmousedown= function (event) {
-    event = event || window.event;
-    startX = event.clientX;
-    return startX;
-  }
+function getStartCoordinats(event) {
+  event = event || window.event;
+  translationStartX = event.clientX;
+  return translationStartX;
 }
 
-const getEndCoordinats = () => {
-  slider.onmouseup= function (event) {
-    event = event || window.event;
-    endX = event.clientX;
-    return pull();
-  }
+function getEndCoordinats(event) {
+  event = event || window.event;
+  translationEndX = event.clientX;
+  return pull();
 }
-
-left.addEventListener('click', ()=>{
-  clearInterval(timerId);
-  moveLeft();
-  timerId = autoPlay();
-});
-
-right.addEventListener('click', ()=>{
-  clearInterval(timerId);
-  moveRight();
-  timerId = autoPlay();
-});
 
 function init () {
-  pull();
-  getStartCoordinats();
-  getEndCoordinats();
+  sliderInstance.addEventListener('mousedown', getStartCoordinats);
+  sliderInstance.addEventListener('mouseup', getEndCoordinats);
+
+  btnLeft.addEventListener('click', ()=>{
+    clearInterval(timerId);
+    moveLeft();
+    timerId = autoPlay();
+  });
+
+  btnRight.addEventListener('click', ()=>{
+    clearInterval(timerId);
+    moveRight();
+    timerId = autoPlay();
+  });
+  
+  timerId = autoPlay();
 }
 
-//init();
+window.addEventListener('load', init);
