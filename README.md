@@ -1,3 +1,3 @@
 # [Slider]
 
-[Slider]: ссылка на слайдер
+[Slider]: slider-test-21-07-22.netlify.app
