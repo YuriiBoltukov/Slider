@@ -135,20 +135,16 @@ function init () {
 
   slider.addEventListener('mousedown', (event) => {
     setStartCoordinats(event);
-    console.log('mousedown', event)
   });
   slider.addEventListener('mouseup', (event) => {
     setEndCoordinats(event);
-    console.log('mouseup', event)
     pull();
   });
   slider.addEventListener('touchstart', (event) => {
     setStartCoordinats(event.changedTouches[0]);
-    console.log('touchstart', event)
   });
   slider.addEventListener('touchend', (event) => {
     setEndCoordinats(event.changedTouches[0]);
-    console.log('touchend', event)
     pull(); 
   });
   btnLeft.addEventListener('click', ()=>{
