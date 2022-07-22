@@ -133,27 +133,31 @@ function init () {
 
   timerId = autoPlay();
 
-  sliderInstance.addEventListener('mousedown', (event) => {
+  slider.addEventListener('mousedown', (event) => {
     event.stopPropagation();
     event.preventDefault();
     setStartCoordinats(event);
+    console.log('mousedown', event)
   });
-  sliderInstance.addEventListener('mouseup', (event) => {
+  slider.addEventListener('mouseup', (event) => {
     event.stopPropagation();
     event.preventDefault();
     setEndCoordinats(event);
+    console.log('mouseup', event)
     pull();
   });
-  sliderInstance.addEventListener('touchstart', (event) => {
+  slider.addEventListener('touchstart', (event) => {
     event.stopPropagation();
     event.preventDefault();
     setStartCoordinats(event.changedTouches[0]);
+    console.log('touchstart', event)
   });
-  sliderInstance.addEventListener('touchend', (event) => {
+  slider.addEventListener('touchend', (event) => {
     event.stopPropagation();
     event.preventDefault();
     setEndCoordinats(event.changedTouches[0]);
-    pull();
+    console.log('touchend', event)
+    pull(); 
   });
   btnLeft.addEventListener('click', ()=>{
     reloadAutoPlay();
