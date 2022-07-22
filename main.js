@@ -133,13 +133,25 @@ function init () {
 
   timerId = autoPlay();
 
-  sliderInstance.addEventListener('mousedown', setStartCoordinats);
+  sliderInstance.addEventListener('mousedown', (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    setStartCoordinats(event);
+  });
   sliderInstance.addEventListener('mouseup', (event) => {
+    event.stopPropagation();
+    event.preventDefault();
     setEndCoordinats(event);
     pull();
   });
-  sliderInstance.addEventListener('touchstart', (event) => setStartCoordinats(event.changedTouches[0]));
+  sliderInstance.addEventListener('touchstart', (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    setStartCoordinats(event.changedTouches[0]);
+  });
   sliderInstance.addEventListener('touchend', (event) => {
+    event.stopPropagation();
+    event.preventDefault();
     setEndCoordinats(event.changedTouches[0]);
     pull();
   });
